@@ -97,6 +97,7 @@
             btnExit.TabIndex = 6;
             btnExit.Text = "Exit";
             btnExit.UseVisualStyleBackColor = true;
+            btnExit.Click += btnExit_Click;
             // 
             // lblEmailAddress
             // 

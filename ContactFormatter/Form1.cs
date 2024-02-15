@@ -49,21 +49,23 @@ namespace ContactFormatter
             string state = txtState.Text.Trim().ToUpper();
             string zip = txtZip.Text.Trim();
 
-            if(city.Length == 0)
+            if (city.Length == 0)
             {
                 MessageBox.Show("City cannot be empty", "Error");
-            } else
+            }
+            else
             {
-                
+
                 char upperCityChar = char.ToUpper(city[0]);
-                city = city.Remove(0,1);
+                city = city.Remove(0, 1);
                 city = city.Insert(0, upperCityChar.ToString());
             }
-            
+
             if (zip.Length != 5)
             {
                 MessageBox.Show("ZIP code must be five digits", "Error");
-            } else if(state.Length != 2)
+            }
+            else if (state.Length != 2)
             {
                 MessageBox.Show("State must be two letter abbreviation", "Error");
             }
@@ -72,6 +74,11 @@ namespace ContactFormatter
                 MessageBox.Show("Address: " + city + " " + state +
                     " " + zip, "Formatted Address");
             }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
