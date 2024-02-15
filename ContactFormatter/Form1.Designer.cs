@@ -87,6 +87,7 @@
             btnFormat.TabIndex = 5;
             btnFormat.Text = "Format";
             btnFormat.UseVisualStyleBackColor = true;
+            btnFormat.Click += btnFormat_Click;
             // 
             // btnExit
             // 

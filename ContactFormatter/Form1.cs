@@ -14,10 +14,11 @@ namespace ContactFormatter
             string domain = "";
             string[] strings;
 
-            if(!emailAddress.Contains("@"))
+            if (!emailAddress.Contains("@"))
             {
                 MessageBox.Show("Must be a valid email address", "Error");
-            } else
+            }
+            else
             {
                 strings = emailAddress.Split('@');
 
@@ -40,6 +41,37 @@ namespace ContactFormatter
                     "\n" + "Domain: " + domain, "Parse Email Address");
             }
             */
+        }
+
+        private void btnFormat_Click(object sender, EventArgs e)
+        {
+            string city = txtCity.Text.Trim();
+            string state = txtState.Text.Trim().ToUpper();
+            string zip = txtZip.Text.Trim();
+
+            if(city.Length == 0)
+            {
+                MessageBox.Show("City cannot be empty", "Error");
+            } else
+            {
+                
+                char upperCityChar = char.ToUpper(city[0]);
+                city = city.Remove(0,1);
+                city = city.Insert(0, upperCityChar.ToString());
+            }
+            
+            if (zip.Length != 5)
+            {
+                MessageBox.Show("ZIP code must be five digits", "Error");
+            } else if(state.Length != 2)
+            {
+                MessageBox.Show("State must be two letter abbreviation", "Error");
+            }
+            else
+            {
+                MessageBox.Show("Address: " + city + " " + state +
+                    " " + zip, "Formatted Address");
+            }
         }
     }
 }
